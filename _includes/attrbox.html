@@ -1,0 +1,20 @@
+<aside class="entry-infobox">
+  {% if page.path == site.bonsai.entries.root_path %}
+    <img id="root-logo" class="infobox-img" alt="Root logo">
+  {% endif %}
+  <nav id="attr-box-link-nav" class="link-map">
+    {% for attr in page.attributes %}
+      <div class="link-map-item">
+        <h3 class="link-map-key">{{ attr.type | capitalize }}</h3>
+        <ul class="link-map-value">
+          {% for doc_url in attr.urls %}
+            {% assign attr_doc = site.entries | where: "url", doc_url | first %}
+            <li>
+              <a class="wiki-link" href="{{ attr_doc.url | relative_url }}">{{ attr_doc.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </nav>
+</aside>

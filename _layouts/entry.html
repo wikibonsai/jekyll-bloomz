@@ -1,0 +1,59 @@
+---
+layout: base
+---
+<article class="entry h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="entry-header">
+    <h1 class="entry-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="entry-meta">
+      {%- assign date_format = site.jekyll_bloomz.date_format | default: "%b %-d, %Y" -%}
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.modified_date -%}
+        ~ 
+        {%- assign mdate = page.modified_date | date_to_xmlschema -%}
+        <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
+          {{ mdate | date: date_format }}
+        </time>
+      {%- endif -%}
+      {%- if page.author -%}
+        • {% for author in page.author %}
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+            {%- if forloop.last == false %}, {% endif -%}
+        {% endfor %}
+      {%- endif -%}
+    </p>
+  </header>
+
+  {% if page.attributes.size > 0 %}
+    <aside class="attrbox">
+      <span class="attrbox-title">Attributes</span>
+      <dl>
+        {% for attr in page.attributes %}
+          <dt>{{ attr.type }}</dt>
+          <dd>
+            {% for doc_url in attr.urls %}
+              {% assign attr_doc = site.entries | where: "url", doc_url | first %}
+              <li>
+                <a class="wiki-link" href="{{ attr_doc.url | relative_url }}">{{ attr_doc.title }}</a>
+              </li>
+            {% endfor %}
+          </dd>
+        {% endfor %}
+      </dl>
+    </aside>
+  {% endif %}
+
+  <div class="entry-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {%- include backrefs.html -%}
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

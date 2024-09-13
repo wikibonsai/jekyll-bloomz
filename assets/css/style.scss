@@ -1,0 +1,7 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import
+  "jekyll-bloomz/skins/{{ site.jekyll_bloomz.skin | default: 'classic' }}",
+  "jekyll-bloomz/initialize";

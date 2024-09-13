@@ -1,0 +1,37 @@
+<div class="back-refs">
+  <h3 class="title">Links To This Page</h3>
+  <div class="sections">
+    <div class="section">
+      <span class="section-title">Attributes</span>
+      <ul class="attrtype">
+        {% for attr in page.attributed %}
+          <li>
+            {{ attr.type }}:
+            <ul>
+              {% for url in attr.urls %}
+                <li>
+                  {% assign linked_doc = site.documents | where: "url", url | first %}
+                  <a class="wiki-link" href="{{ linked_doc.url }}">{{ linked_doc.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="section">
+      <span class="section-title">Links</span>
+      <ul>
+        {% for backlink in page.backlinks %}
+          <li>
+            {% assign linked_doc = site.documents | where: "url", backlink.url | first %}
+            {% if backlink.type %}
+              {{ backlink.type }}:
+            {% endif %}
+            <a class="wiki-link" href="{{ linked_doc.url }}">{{ linked_doc.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
