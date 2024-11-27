@@ -113,13 +113,14 @@ jekyll_bloomz:
 
 
 semtree:
+  # doctype: 'index'
   # enabled: true
   # root: 'i.bonsai'
   # doctype: 'index'
   virtual_trunk: true
-  # exclude:
+  exclude:
   #   - "books"
-  #   - "pages"
+    - "pages"
   #   - "posts"
   #   - "states"
 
