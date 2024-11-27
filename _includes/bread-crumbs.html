@@ -1,0 +1,22 @@
+<nav class="bread-crumbs" aria-label="Breadcrumb">
+  <ol>
+    <li>
+      <a class="wiki-link" href="/">Home</a>
+    </li>
+    {% if page.ancestors %}
+      {% for ancestor in page.ancestors %}
+        <li>
+          {% assign ancestor_doc = site.documents | where: "url", ancestor | first %}
+          {% if ancestor_doc %}
+            <a class="wiki-link" href="{{ ancestor_doc.url }}">{{ ancestor_doc.title }}</a>
+          {% else %}
+            <a class="invalid">{{ ancestor | capitalize | replace: '-', ' ' }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    {% endif %}
+    <li>
+      {{ page.title }}
+    </li>
+  </ol>
+</nav>

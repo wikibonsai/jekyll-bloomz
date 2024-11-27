@@ -3,6 +3,7 @@ layout: base
 ---
 <article class="entry h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="entry-header">
+    {%- include bread-crumbs.html -%}
     <h1 class="entry-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="entry-meta">
       {%- assign date_format = site.jekyll_bloomz.date_format | default: "%b %-d, %Y" -%}

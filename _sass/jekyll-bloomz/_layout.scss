@@ -524,6 +524,30 @@ dd {
 }
 
 /**
+ * bread-crumbs
+ */
+
+.bread-crumbs {
+  ol {
+    list-style: '> ';
+    display: flex;
+    align-self: center;
+    overflow-x: scroll;
+    white-space: nowrap;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  li {
+    padding-right: 1.5em;
+  }
+
+  .site-item {
+    list-style: none;
+  }
+}
+
+/**
  * back-refs include
  */
 
