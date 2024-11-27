@@ -7,8 +7,51 @@ layout: base
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
-  {{ content }}
+  <p>
+    Welcome to <a class="wiki-link" href="/entry/jekyll-bloomz/">jekyll-bloomz</a>, a digital garden starter template.
+    This template serves as a lightweight, minimally-styled starting point for anyone looking to
+    build a personal website, blog, digital garden, or portfolio with <a href="https://jekyllrb.com/">jekyll</a> -- and <a href="https://github.com/wikibonsai/wikibonsai">WikiBonsai</a>.
+  </p>
+  <p>Here are a few ideas on how to get started with the template:</p>
+  <ul>
+    <li>Configs</li>
+    <ul>
+      <li>Edit Jekyll configs in <code>_config.yml</code></li>
+      <li>Edit Bloomz setup and configs and logic in <code>Gemfile</code> (and related plugins)</li>
+    </ul>
+    <li>Pages</li>
+    <ul>
+      <li>Edit this page in <code>_layouts/home.html</code></li>
+      <li>Edit the tag tree map in <code>_layouts/map.html</code></li>
+    </ul>
+    <li>Layouts</li>
+    <ul>
+      <li>Customize the base layout in <code>_layouts/base.html</code></li>
+      <li>Customize the blog post page layout in <code>_layouts/post.html</code></li>
+      <li>Customize the entry page layout in <code>_layouts/entry.html</code></li>
+    </ul>
+    <li>Includes</li>
+    <ul>
+      <li>Customize the tag tree map branching in <code>_includes/branch.html</code></li>
+      <li>Customize the entry breadcrumbs in <code>_includes/breadcrumbs.html</code></li>
+      <li>Customize the entry backrefs section in <code>_includes/backrefs.html</code></li>
+    </ul>
+    <li>Content</li>
+    <ul>
+      <li>Add posts in <code>_posts/</code></li>
+      <li>Add entries in <code>_entries/</code></li>
+      <li>Update topic index in <code>_index/</code></li>
+    </ul>
+  </ul>
+  <p>
+    Have fun! If you get stuck, remember to checkout the <a href="https://jekyllrb.com/docs/"
+      >jekyll docs</a> or <a href="https://github.com/wikibonsai/wikibonsai/"
+      >wikibonsai docs</a>.
+  </p>
 
+  <hr>
+
+  {{ content }}
 
   {% if site.paginate %}
     {% assign posts = paginator.posts %}
