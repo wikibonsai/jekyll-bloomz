@@ -1,5 +1,5 @@
 ---
-title: Tag Map Page
+title: Tag Map
 layout: map
 permalink: /map/
 ---
